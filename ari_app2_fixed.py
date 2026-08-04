@@ -655,7 +655,7 @@ def build_order_map(df: pd.DataFrame, region_col: str, order_col: str | None = N
 def get_openai_client():
     if OpenAI is None:
         return None
-    api_key = st.secrets["OPENAI_API_KEY"]
+    api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         return None
     return OpenAI(api_key=api_key)
